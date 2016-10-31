@@ -10,13 +10,14 @@ import java.util.Locale;
 
 import org.junit.Test;
 
+import static com.alexstyl.specialdates.date.DateConstants.APRIL;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.fail;
 
 public class RomanianNamedaysTest {
 
     @Test
-    public void whenCreatingRomanianNamedaysAllNamesAreReturnedCorrectly() throws Exception {
+    public void whenCreatingRomanianNamedays_thenAllNamesAreReturnedCorrectly() {
         List<String> celebratingNames = Arrays.asList("Florin", "Viorel", "Viorica", "Florin");
 
         RomanianNamedays namedays = RomanianNamedays.from(celebratingNames);
@@ -26,7 +27,7 @@ public class RomanianNamedaysTest {
     }
 
     @Test
-    public void whenCreatingRomanianNamedaysDateIsCalculatedProperly() throws Exception {
+    public void whenCreatingRomanianNamedays_thenDateIsCalculatedProperly() {
         List<String> expectedNames = Arrays.asList("Florin", "Viorel", "Viorica", "Florin");
 
         RomanianNamedays namedays = RomanianNamedays.from(expectedNames);
@@ -43,12 +44,12 @@ public class RomanianNamedaysTest {
 
     private List<Date> buildExpectedDates() {
         List<Date> dates = new ArrayList<>();
-        dates.add(Date.on(9, 4, 2017));
-        dates.add(Date.on(1, 4, 2018));
-        dates.add(Date.on(21, 4, 2019));
-        dates.add(Date.on(12, 4, 2020));
-        dates.add(Date.on(25, 4, 2021));
-        dates.add(Date.on(17, 4, 2022));
+        dates.add(Date.on(9, APRIL, 2017));
+        dates.add(Date.on(1, APRIL, 2018));
+        dates.add(Date.on(21, APRIL, 2019));
+        dates.add(Date.on(12, APRIL, 2020));
+        dates.add(Date.on(25, APRIL, 2021));
+        dates.add(Date.on(17, APRIL, 2022));
         return dates;
     }
 }
