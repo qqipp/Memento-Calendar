@@ -5,12 +5,14 @@ import android.support.annotation.DrawableRes;
 import android.support.design.widget.TabLayout;
 import android.util.AttributeSet;
 
+import com.novoda.notils.logger.simple.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class EventsFilterLayout extends TabLayout {
 
-    private OnSectionPressedListener listener;
+    private OnSectionPressedListener listener = OnSectionPressedListener.NO_CALLBACK;
     private final Map<EventSection, Boolean> categoryStates = new HashMap<>(EventSection.values().length);
 
     private int numberOfActive = EventSection.values().length;
@@ -86,6 +88,13 @@ public class EventsFilterLayout extends TabLayout {
     };
 
     public interface OnSectionPressedListener {
+        OnSectionPressedListener NO_CALLBACK = new OnSectionPressedListener() {
+            @Override
+            public void onSectionPressed(EventSection section, boolean enabled) {
+                Log.w("onSectionPressed() but no listener was set");
+            }
+        };
+
         void onSectionPressed(EventSection section, boolean enabled);
     }
 }
