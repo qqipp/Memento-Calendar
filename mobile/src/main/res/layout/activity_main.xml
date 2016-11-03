@@ -4,28 +4,41 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <FrameLayout
-    android:id="@+id/toolbar_holder"
+  <LinearLayout
+    android:id="@+id/topbar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/toolbar_semi_expanded_height"
+    android:layout_height="wrap_content"
     android:background="?attr/colorPrimary"
-    android:elevation="@dimen/toolbar_elevation">
+    android:elevation="@dimen/toolbar_elevation"
+    android:orientation="vertical"
+    tools:targetApi="lollipop">
 
-    <com.alexstyl.specialdates.upcoming.ExposedSearchToolbar
-      android:id="@+id/memento_toolbar"
+    <FrameLayout
+      android:id="@+id/toolbar_holder"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_gravity="center"
-      android:layout_margin="@dimen/padding_tight"
-      app:titleTextAppearance="@style/Upcoming.Toolbar.TitleText" />
+      android:layout_height="@dimen/toolbar_semi_expanded_height">
 
-  </FrameLayout>
+      <com.alexstyl.specialdates.upcoming.ExposedSearchToolbar
+        android:id="@+id/memento_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/padding_tight"
+        app:titleTextAppearance="@style/Upcoming.Toolbar.TitleText" />
+    </FrameLayout>
+
+    <com.alexstyl.specialdates.ui.EventsFilterLayout
+      android:id="@+id/main_filter_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+  </LinearLayout>
+
 
   <LinearLayout
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@id/toolbar_holder"
+    android:layout_below="@id/topbar"
     android:baselineAligned="false"
     android:gravity="center_horizontal"
     android:orientation="horizontal"
